@@ -1,0 +1,316 @@
+.timetablePage{
+  padding: 12px 18px 28px;
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.timetableHeader{
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+.addSlotBtn{
+  margin-left: auto;
+  background: #482fffab;
+  color: #ffffff;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+}
+.addSlotBtn:hover{
+  background: #3161ff;
+}
+.timetableHeader h2{
+  margin: 0;
+  font-size: 18px;
+}
+.timetableHint{
+  color: var(--muted);
+  font-size: 12px;
+}
+.timetableGrid{
+  display: grid;
+  grid-template-columns: 110px repeat(7, minmax(88px, 1fr));
+  gap: 6px;
+}
+.timetableRow{
+  display: contents;
+}
+.timetableCell{
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  padding: 8px;
+  min-height: 56px;
+  background: var(--bg-elev);
+}
+.timetableCell.header{
+  background: var(--bg-elev-2);
+  font-weight: 700;
+  text-align: center;
+  min-height: 32px;
+  font-size: 12px;
+}
+.timetableCell.timeCell{
+  font-weight: 600;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  gap: 6px;
+}
+.timetableCell.timeCell span{
+  white-space: nowrap;
+}
+.slotRemoveBtn{
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 4px;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease-out, background 0.15s ease-out, color 0.15s ease-out;
+}
+.timetableRow:hover .slotRemoveBtn{
+  opacity: 1;
+  pointer-events: auto;
+}
+.slotRemoveBtn:hover{
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.12);
+}
+.emptyCell{
+  width: 100%;
+  height: 100%;
+  border: 1px dashed rgba(148, 163, 184, 0.5);
+  background: transparent;
+  border-radius: 8px;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 11px;
+}
+.entryCard{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 8px;
+}
+.entryTitle{
+  font-weight: 700;
+  color: var(--text);
+  font-size: 12px;
+}
+.entryDesc{
+  color: var(--muted);
+  font-size: 11px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.entryActions{
+  margin-top: 8px;
+  display: flex;
+  gap: 6px;
+}
+.entryBtn{
+  border: 1px solid var(--border);
+  background: var(--bg-elev-2);
+  color: var(--text);
+  border-radius: 7px;
+  padding: 4px 6px;
+  cursor: pointer;
+  font-size: 11px;
+}
+.entryBtn.danger{
+  color: #fecaca;
+  background: rgba(239, 68, 68, 0.18);
+  border-color: rgba(239, 68, 68, 0.35);
+}
+.entryBtn.danger:hover{
+  background: rgba(239, 68, 68, 0.28);
+  color: #fee2e2;
+}
+.timetableModalBg{
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.timetableModal{
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  width: min(92vw, 560px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 14px 40px rgba(2, 6, 23, 0.5);
+  max-height: calc(100vh - 32px);
+  overflow: auto;
+}
+.modalHeader{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.modalHeader h3{
+  margin: 0;
+  font-size: 18px;
+}
+.modalClose{
+  border: 0;
+  background: transparent;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--muted);
+}
+.modalRow{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.modalRow label{
+  color: var(--text);
+  font-weight: 600;
+}
+.modalRow input,
+.modalRow textarea{
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-elev-2);
+  color: var(--text);
+  font-size: 12px;
+}
+.modalRow textarea{
+  min-height: 64px;
+  resize: none;
+}
+.dayPills{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.dayPill{
+  border: 1px solid var(--border);
+  background: var(--bg-elev-2);
+  color: var(--text);
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.dayPill.active{
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+.timeRow{
+  display: flex;
+  gap: 16px;
+}
+.timeCol{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.colorDots{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.colorDot{
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--bg-elev);
+  box-shadow: 0 0 0 1px var(--border);
+  cursor: pointer;
+}
+.colorDot.active{
+  box-shadow: 0 0 0 2px var(--text);
+}
+.modalActions{
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.modalActions .ghost{
+  border: 1px solid var(--border);
+  background: var(--bg-elev-2);
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+.modalActions .primary{
+  border: 0;
+  background: var(--text);
+  color: var(--bg);
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 12px;
+}
+.slotModal{
+  width: min(92vw, 420px);
+}
+.slotError{
+  color: #ef4444;
+  font-size: 12px;
+}
+@media (max-width: 700px){
+  .timetableModal{
+    width: calc(100vw - 24px);
+  }
+  .timeRow{
+    flex-direction: column;
+  }
+}
+@media (max-width: 1100px){
+  .timetableGrid{
+    grid-template-columns: 110px repeat(7, minmax(110px, 1fr));
+  }
+}
+@media (max-width: 900px){
+  .timetableGrid{
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px;
+    min-width: 760px;
+  }
+}
+@media (max-width: 640px){
+  .timetablePage{
+    padding: 10px 14px 24px;
+  }
+  .timetableHeader{
+    align-items: flex-start;
+  }
+  .addSlotBtn{
+    width: 100%;
+    margin-left: 0;
+  }
+}

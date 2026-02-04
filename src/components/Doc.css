@@ -1,0 +1,182 @@
+.docPage{
+  padding: 26px 32px 60px;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.docHero{
+  background:
+    radial-gradient(600px 260px at 10% 0%, rgba(96, 165, 250, 0.18), transparent 60%),
+    radial-gradient(600px 260px at 90% 10%, rgba(94, 234, 212, 0.16), transparent 60%),
+    var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 26px 28px;
+  box-shadow: var(--shadow);
+}
+.docHeroBadge{
+  display: inline-flex;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(96, 165, 250, 0.14);
+  color: var(--text);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+}
+.docHero h1{
+  margin: 12px 0 8px;
+  font-size: 30px;
+  line-height: 1.2;
+}
+.docHero p{
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 760px;
+}
+.docGrid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.docCard{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+.docCard h3{
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+.docCard p{
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+.docSteps{
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+.docSteps h2{
+  margin: 0 0 14px;
+  font-size: 20px;
+}
+.docStepList{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.docStep{
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 12px;
+  border-radius: 14px;
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border);
+}
+.docStepNum{
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #0b1220;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.docStep h4{
+  margin: 0 0 4px;
+  font-size: 14px;
+}
+.docStep p{
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+.docTips{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.docTipCard{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+.docTipCard h3{
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+.docTipCard ul{
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.docTipCard li{
+  margin-bottom: 6px;
+}
+.docCallout{
+  border: 1px dashed rgba(96, 165, 250, 0.4);
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.12), rgba(94, 234, 212, 0.1));
+  border-radius: 18px;
+  padding: 18px;
+}
+.docCallout h3{
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+.docCallout p{
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+@media (max-width: 900px){
+  .docGrid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .docTips{
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 640px){
+  .docPage{
+    padding: 22px 16px 50px;
+  }
+  .docGrid{
+    grid-template-columns: 1fr;
+  }
+  .docHero h1{
+    font-size: 24px;
+  }
+}
+@media (max-width: 520px){
+  .docHero{
+    padding: 20px;
+  }
+  .docSteps{
+    padding: 16px;
+  }
+  .docStep{
+    grid-template-columns: 1fr;
+  }
+  .docStepNum{
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    font-size: 12px;
+  }
+}
