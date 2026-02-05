@@ -190,6 +190,21 @@ export async function addLesson(data){
 }
 export async function deleteLesson(LessonID){
     try{
+        const subtopicRes = await databases.listDocuments(
+            Database_ID,
+            Subtopics,
+            [
+                Query.equal("topicId", LessonID),
+                Query.limit(100)
+            ]
+        );
+        for (const sub of subtopicRes.documents) {
+            await databases.deleteDocument(
+                Database_ID,
+                Subtopics,
+                sub.$id
+            );
+        }
         await databases.deleteDocument(
             Database_ID,
             Topic_Info,
@@ -198,5 +213,6 @@ export async function deleteLesson(LessonID){
     }
     catch(error){
         alert("Could not delete . Try again.");
+        throw error;
     }
 }
