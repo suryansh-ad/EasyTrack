@@ -232,9 +232,14 @@ const progressPercent =
             
 
     }
-function handleDeleteLesson(LessonID){
-    deleteLesson(LessonID);
-    setDeletePressed(prev => !prev);
+async function handleDeleteLesson(LessonID){
+    try{
+        await deleteLesson(LessonID);
+        setSubtopics(prev => prev.filter(item => item.topicId !== LessonID));
+        setDeletePressed(prev => !prev);
+    }catch(error){
+        console.error("Could not delete topic and subtopics", error);
+    }
 }
 
 async function handleToggleSubtopic(subtopic){
